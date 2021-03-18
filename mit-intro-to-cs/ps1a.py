@@ -2,6 +2,22 @@
 #       9 March 2021
 #       Saving for a house
 #
+#       Test Case 1
+#       >>>
+#       Enter your annual salary: 120000
+#       Enter the percent of your salary to save, as a decimal: .10
+#       Enter the cost of your dream home: 1000000
+#       Number of months: 183
+#       >>>
+#
+#       Test Case 2
+#       >>>
+#       Enter your annual salary: 80000
+#       Enter the percent of your salary to save, as a decimal: .15
+#       Enter the cost of your dream home: 500000
+#       Number of months: 105
+#       >>>
+#
 ###############################################################################
 
 #   constants
