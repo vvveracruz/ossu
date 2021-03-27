@@ -8,19 +8,24 @@
 
 import itertools
 
-while True:
+def is_int( s ):
     try:
-        x = int(input('Enter an integer: '))
-        break
+        int(s)
+        return True
     except ValueError:
-        print('Ding dong you\'re wrong. You can only enter integers. Try again.')
-        continue
+        return False
+
+x = input('Enter an integer: ')
+while not is_int(x):
+    x = input('Enter an integer: ')
+
+x = int(x)
 
 for pwr, root in itertools.product(range(2, 6), range(1, x)):
     if root**pwr == x:
         break
 
 if root**pwr == x:
-    print('I found root =', root, 'and pwr =', pwr, 'for x =', x)
+    print('I found root =', root, 'and pwr =', pwr, 'for x =', x, '\n')
 else:
-    print('No root and pwr could be found for x =', x)
+    print('No root and pwr could be found for x =', x, '\n')
