@@ -86,7 +86,7 @@ def n_bisection_search(x, epsilon = 0.01, n = 3):
     '''
     Finds the nth root of a number x using bisection search.
 
-    I think this should wor but I haven't really tested it beyond n = 3.
+    I think this should work but I haven't really tested it beyond n = 3.
     '''
     num_guesses = 0
     low = min(-1, x)
