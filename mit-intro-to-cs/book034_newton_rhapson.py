@@ -3,7 +3,7 @@
 #   27 March 2020
 #   Chapter 3.3
 #
-#   Newton-Rhapson method for finding roots
+#   Newton-Rhapson method for finding roots & comparing efficiency
 #
 ###############################################################################
 
