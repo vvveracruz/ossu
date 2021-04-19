@@ -60,7 +60,7 @@ wordlist = load_words()
 def is_word_guessed(secret_word, letters_guessed):
     '''
     Checks whether all the letters in secret_word are in letters_guessed.
-
+              -                   -               -
     Input     |   secret_word     |   str         |   all chars are lowercase
     Input     |   letters_guessed |   lst[chars]  |   all chars are lowercase
               -                   -               -
@@ -74,10 +74,14 @@ def is_word_guessed(secret_word, letters_guessed):
 
 def get_guessed_word(secret_word, letters_guessed):
     '''
-    secret_word: string, the word the user is guessing
-    letters_guessed: list (of letters), which letters have been guessed so far
-    returns: string, comprised of letters, underscores (_), and spaces that represents
-      which letters in secret_word have been guessed so far.
+    Returns a string that is comprised of letters and udnerscores, based on what letters in
+    letters_guessed are in secret_word.
+              -                   -               -
+    Input     |   secret_word     |   str         |   all chars are lowercase
+    Input     |   letters_guessed |   lst[chars]  |   all chars are lowercase
+              -                   -               -
+    Output    |                   |   str         |
+              -                   -               -
     '''
     # FILL IN YOUR CODE HERE AND DELETE "pass"
     pass
