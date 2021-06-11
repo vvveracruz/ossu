@@ -43,6 +43,17 @@ def is_word_guessed(secret_word, letters_guessed):
     
     return True
 
+def get_guessed_word(secret_word, letters_guessed):
+    '''
+    secret_word: string, 
+        the word the user is guessing
+    letters_guessed: list (of letters), 
+        which letters have been guessed so far
+    returns: string, 
+        comprised of letters, underscores (_), and spaces that represents
+        which letters in secret_word have been guessed so far.
+    '''
+
 if __name__=="__main__":
     # secret_word = choose_word()
     secret_word = 'apple'
