@@ -85,9 +85,28 @@ def get_available_letters(letters_guessed):
     
     return available_letters
 
+def welcome_message(line_len):
+    '''
+    Line len and strings must be of even length.
+    '''
+    title = "VE'S GAME OF HANGMAN"
+    print(
+        '\n\n\n',
+        '-'*line_len,
+        '\n',
+        '|'+' '*[(line_len-2-len(title))/2]
+        #+title+' '*(line_len-2-len(title))/2+'|'
+          )
+    
+    
+
+def play(secret_word, guesses=6, line_len=70):
+    welcome_message(line_len)
+    
+
+
 if __name__=="__main__":
     # secret_word = choose_word()
     secret_word = 'apple'
-    letters_guessed = 'ale'
 
-    print(get_available_letters(letters_guessed))
+    play(secret_word)
