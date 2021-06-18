@@ -2,6 +2,7 @@
 
 import random
 import string
+import math
 
 WORDLIST_FILENAME = 'words.txt'
 
@@ -85,28 +86,40 @@ def get_available_letters(letters_guessed):
     
     return available_letters
 
-def welcome_message(line_len):
-    '''
-    Line len and strings must be of even length.
-    '''
-    title = "VE'S GAME OF HANGMAN"
+def get_update_message(guesses, letters_guessed):
     print(
-        '\n\n\n',
-        '-'*line_len,
-        '\n',
-        '|'+' '*[(line_len-2-len(title))/2]
-        #+title+' '*(line_len-2-len(title))/2+'|'
-          )
-    
+        'You have '+str(guesses)+' wrong guesses left.\n'
+        'Available letters: '+get_available_letters(letters_guessed)+'.\n'
+    )
+    return None
     
 
-def play(secret_word, guesses=6, line_len=70):
-    welcome_message(line_len)
+def play(secret_word):
+    guesses = math.ceil(len(secret_word)*0.4)
+    letters_guessed = ''
+    print(
+        '\n\n'
+        '------------------------------------------------------------------\n'
+        'Welcome to Ve\'s game of hangman\n'
+        'I am thinking of a word that is '+str(len(secret_word))+' letters long.\n'
+        '\n'
+        )
     
+    # main loop
+    while guesses != 0:
+        get_update_message(guesses, letters_guessed)
+        guess = input('Please guess a letter: ')
+        while len(guess) != 1:
+            guess = input('Input not valid.\nPlease guess a letter: ')
+        if guess in secret_word:
+            print('Good guess!')
+            letters_guessed += guess
+            print(get_guessed_word(secret_word, letters_guessed))
+        guesses -= 1
 
 
 if __name__=="__main__":
-    # secret_word = choose_word()
-    secret_word = 'apple'
+    secret_word = choose_word()
+    # secret_word = 'apple'
 
     play(secret_word)
