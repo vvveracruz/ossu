@@ -87,35 +87,48 @@ def get_available_letters(letters_guessed):
     return available_letters
 
 def get_update_message(guesses, letters_guessed):
-    print(
-        'You have '+str(guesses)+' wrong guesses left.\n'
-        'Available letters: '+get_available_letters(letters_guessed)+'.\n'
-    )
+    print('\n')
+    if guesses == 1:
+        print('Last chance: you have 1 guess left.')
+    else:
+        print('You have '+str(guesses)+' wrong guesses left.')
+    print('Available letters: '+get_available_letters(letters_guessed)+'.')
     return None
     
+def display_loss(secret_word):
+    print('\nSorry, you lost. The secret word was', secret_word+'.\n\n')
+
+def display_win():
+    print('\nNice! YOU WON!!!!\n\n')
 
 def play(secret_word):
-    guesses = math.ceil(len(secret_word)*0.4)
+    guesses = math.ceil(len(secret_word))
     letters_guessed = ''
     print(
         '\n\n'
         '------------------------------------------------------------------\n'
         'Welcome to Ve\'s game of hangman\n'
-        'I am thinking of a word that is '+str(len(secret_word))+' letters long.\n'
-        '\n'
+        'I am thinking of a word that is '+str(len(secret_word))+' letters long.'
         )
     
     # main loop
     while guesses != 0:
         get_update_message(guesses, letters_guessed)
         guess = input('Please guess a letter: ')
-        while len(guess) != 1:
-            guess = input('Input not valid.\nPlease guess a letter: ')
+        letters_guessed += guess
+        while len(guess) != 1 or guess not in string.ascii_lowercase:
+            guess = input('Input not valid.\nPlease guess a lowercase letter: ')
         if guess in secret_word:
             print('Good guess!')
-            letters_guessed += guess
             print(get_guessed_word(secret_word, letters_guessed))
-        guesses -= 1
+        else:
+            guesses -= 1
+        if secret_word == get_guessed_word(secret_word, letters_guessed).replace(' ', ''):
+                display_win()
+                break
+        if guesses == 0:
+            display_loss(secret_word)
+        
 
 
 if __name__=="__main__":
